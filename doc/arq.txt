@@ -1,0 +1,47 @@
+Webpack
+O Webpack é um empacotador de módulos para JavaScript, projetado para analisar dependências,
+transformar arquivos e gerar um bundle otimizado para o navegador. 
+Seu principal objetivo é unir e otimizar código JavaScript, CSS, 
+imagens e outros ativos estáticos, garantindo um melhor desempenho e um fluxo de desenvolvimento mais eficiente.
+
+_____________________________________________________________________________________________________________________________________________________
+BUNDLE 
+Um bundle é um arquivo final gerado pelo Webpack que contém todo o código JavaScript
+(e outros recursos, como CSS e imagens) agrupado e otimizado para ser carregado no navegador.
+Em vez de carregar vários arquivos JS separadamente, o Webpack junta tudo em um único arquivo (ou em vários menores, 
+dependendo da configuração), o que melhora o desempenho e a organização do projeto.
+
+MINIFICAÇÃO 
+A minificação é o processo de otimizar o código, removendo espaços em branco, quebras de linha, comentários e outras partes desnecessárias, 
+sem alterar a funcionalidade. Isso reduz o tamanho dos arquivos de JavaScript ou CSS, melhorando o tempo de carregamento da aplicação e, 
+consequentemente, a performance no navegador. Em vez de ter código "espalhado", ele fica mais compacto e eficiente para ser transferido pela rede.
+
+TRE-SHAKING 
+O tree-shaking é uma técnica que remove o código não utilizado de uma aplicação. Quando você importa várias funções ou módulos de uma biblioteca, 
+mas usa apenas alguns deles, o tree-shaking "sacode" a árvore do código, eliminando o que não é utilizado, resultando em um arquivo menor. 
+Isso melhora o desempenho, já que apenas o código necessário é incluído no bundle final.
+_____________________________________________________________________________________________________________________________________________________
+
+Para isso, o Webpack opera a partir de um ponto de entrada (Entry), que é o arquivo inicial do projeto.
+A partir desse ponto, ele percorre todas as dependências, processa os arquivos e gera um arquivo de saída (Output), 
+que contém o código otimizado e pronto para execução.
+Uma das grandes vantagens do Webpack é a possibilidade de utilizar Loaders, 
+que permitem processar diferentes tipos de arquivos, como CSS, imagens e até mesmo TypeScript,
+transformando-os em módulos compatíveis com JavaScript. Além disso, os Plugins ampliam as funcionalidades do Webpack,
+possibilitando a minificação do código, a extração de arquivos CSS e até a geração automática de arquivos HTML para facilitar o desenvolvimento.
+O modo de operação (Mode) define como o Webpack irá tratar os arquivos. No modo development, 
+o foco está na legibilidade do código, tornando a depuração mais fácil. Já no modo production, 
+são aplicadas diversas otimizações, como minificação e tree-shaking, reduzindo ao máximo o tamanho do bundle.
+Para tornar o desenvolvimento ainda mais ágil, o Webpack DevServer oferece funcionalidades como hot reload e live 
+reload, permitindo que as mudanças no código sejam refletidas automaticamente no navegador sem a necessidade de
+recarregar manualmente a página.
+
+
+modo: default 
+No modo default, o Webpack não aplica otimizações específicas, como minificação ou tree-shaking, que são comuns no modo production. 
+O foco está em um processo mais simples de construção, adequado para desenvolvimento, onde o código é mantido legível e fácil de depurar. 
+Ele não realiza as otimizações pesadas, o que resulta em um código mais fácil de entender e ajustar. Embora esse modo não seja otimizado para 
+produção, ele ainda permite o uso de Loaders e Plugins para transformar arquivos e estender funcionalidades, mas com foco na agilidade do 
+desenvolvimento.
+O Webpack continua realizando seu trabalho de empacotamento, mas sem as intensas otimizações que reduzirão o tamanho do bundle ou melhorarão o 
+desempenho, como ocorre no modo production.
