@@ -1,8 +1,16 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin'); 
 
 module.exports = {
-    mode: 'none',
+    mode: 'production', // none, development, production
+    devServer: {
+        static: {
+          directory: path.resolve(__dirname, 'dist'), 
+        },
+        port: 9020,
+        // hot: true, // Se quiser HMR habilitado, pode ativar aqui
+      },
     entry: './src/index.js',
     output: {
         filename: 'bundle.js',
@@ -22,6 +30,10 @@ module.exports = {
     },
 
     plugins: [
-        new MiniCssExtractPlugin({ filename: 'index.css' }) 
+        new MiniCssExtractPlugin({ filename: 'index.css' }),
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: './public/index.html' // Usa seu HTML personalizado
+        })// Gera automaticamente um arquivo HTML com a configuração do Webpack
     ]
 };
